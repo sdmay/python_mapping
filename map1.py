@@ -10,7 +10,7 @@ name = list(data['NAME'])
 
 def color_range(e):
 
-        print(e)
+        # print(e)
         if e < 1500:
             return 'green'
         elif e < 1500 and e < 2500:
