@@ -22,7 +22,7 @@ def color_range(e):
         else:
             return 'aquamarine'
 # generate the origin point of your map, zoom level, and map type
-map = folium.Map(location=[36, -102], zoom_start=4, tiles='Stamen Terrain')
+map = folium.Map(location=[36, -102], zoom_start=4, tiles='Mapbox Bright')
 
 #Set feature groups for scalable cleaner code
 fgv = folium.FeatureGroup(name='Volcanoes')
@@ -40,7 +40,7 @@ map.add_child(fgv)
 fgp.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='utf-8-sig').read()), style_function= lambda x: {'fillColor': 'red ' if x['properties']['POP2005'] <15000000
 else 'orange' if 15000000 <= x['properties']['POP2005'] < 25000000 else 'green' if 25000000 <= x['properties']['POP2005'] < 50000000 else 'blue' if 50000000 <= x['properties']['POP2005'] < 60000000000000 else 'purple'}))
 # append population to the map
-map.add_child(fgv)
+map.add_child(fgp)
 # turn on layer control to toggle layers
 map.add_child(folium.LayerControl())
 # save map to file to open in browser
